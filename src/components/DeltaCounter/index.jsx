@@ -13,7 +13,7 @@ const DeltaCounter = () => {
 
 	if (isError || isLoading) return <div />
 
-	let myBillTrackers = billTrackers.find((s) => hardCodedIds.includes(s._id))
+	let myBillTrackers = billTrackers[0]//.find((s) => hardCodedIds.includes(s._id))
 	if (state['set'] === false) setState({ set: true, u0: myBillTrackers['users'][0], u1: myBillTrackers['users'][1]})
 
 	const onUserClicksButton = async (user) => {
