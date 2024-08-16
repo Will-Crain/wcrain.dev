@@ -1,7 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { Link, Navigate } from 'react-router-dom'
 
+import { LoginContext } from '../../App'
+
 let Register = () => {
+	let [, setContext] = useContext(LoginContext)
 	let [formData, setFormData] = useState({
 		email: '',
 		password: '',
@@ -41,11 +44,12 @@ let Register = () => {
 			.then((data) => {
 				if (!data?.message) return false
 
+				// console.log(`MESSAGE\t${data.message}`)
 				window.localStorage.setItem('token', data.message)
-				console.log(data.message)
+				setContext(data.message)
 			})
 			.catch((error) => {
-				console.log(e)
+				// console.error(error)
 			})
 	}
 	let handleInputChange = (event) => {
@@ -57,7 +61,7 @@ let Register = () => {
 	}
 
 	return (
-		<section className='flex h-screen flex-col items-center justify-center w-full px-4 sm:w-[40rem]' id='content'>
+		<section className='flex h-screen flex-col items-center justify-center w-full px-4 sm:w-[40rem]' id='register'>
 			<div className='w-full bg-white rounded-lg shadow-md dark:border dark:bg-gray-800 dark:border-gray-700'>
 				<h1 className='text-center m-2 mb-0 text-xl font-bold text-black md:text-3xl dark:text-white'>
 					Create an account
