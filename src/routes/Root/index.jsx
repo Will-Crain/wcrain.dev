@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { LoginContext } from '../../App'
 
-import { Outlet, Link } from 'react-router-dom'
+import { Outlet, Link, Navigate, useLocation } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import { faHouse } from '@fortawesome/free-solid-svg-icons'
@@ -21,15 +21,19 @@ let decodeToken = (token) => {
 }
 
 const RootRoute = () => {
-	let [context, setContext] = useState(window.localStorage.getItem('token') || '')
+	const { pathname: pathName } = useLocation()
+	let [context, setContext] = useContext(LoginContext)
 
 	// TODO replace below with authentication from server
 	let [hasValidToken, token] = decodeToken(context)
 
+	let gradient = ''
+	if (hasValidToken) gradient = `bg-gradient-to-t from-white to-[${token.color}] from-50% to-100%`
+
 	return (
-		<LoginContext.Provider value={[context, setContext]}>
+		<>
 			<div id='pageContainer' className='grid grid-cols-1 grid-rows-[4rem_auto] auto-rows-fr h-screen w-screen'>
-				<section id='header' className='px-4 flex flex-row text-2xl justify-center items-center w-screen h-16 font-bold text-black bg-white shadow-md'>
+				<div id='header' className={`px-4 flex flex-row text-2xl justify-center items-center w-screen h-16 font-bold text-black shadow-md ${gradient}`}>
 					<Link to='/'>
 						<FontAwesomeIcon icon={faHouse} />
 					</Link>
@@ -37,12 +41,13 @@ const RootRoute = () => {
 					<Link to={hasValidToken ? '/profile' : '/login'}>
 						<FontAwesomeIcon icon={faUser} />
 					</Link>
-				</section>
+				</div>
 				<section id='body' className='px-4 flex flex-col justify-start items-center w-screen h-full'>
 					<Outlet />
 				</section>
 			</div>
-		</LoginContext.Provider>
+			{['/', ''].includes(pathName) && <Navigate to='/home' />}
+		</>
 	)
 }
 
