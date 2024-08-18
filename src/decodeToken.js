@@ -1,5 +1,5 @@
 let decodeToken = (token) => {
-  if (!token) return [false, {}]
+  if (token === null || token === undefined) return [false, { message: 'no token' }]
 
   let base64Payload = token.split('.')[1]
   if (!base64Payload) return [false, {}]
