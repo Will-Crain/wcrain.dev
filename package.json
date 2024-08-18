@@ -44,12 +44,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-<<<<<<< Updated upstream
-=======
   },
   "devDependencies": {
     "@babel/core": "^7.16.12",
     "tailwindcss": "^3.4.9"
->>>>>>> Stashed changes
   }
 }
