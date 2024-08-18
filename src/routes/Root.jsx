@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react'
-import { LoginContext } from '../../App'
+import { LoginContext } from '../App'
 
 import { Outlet, Link, Navigate, useLocation } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHouse } from '@fortawesome/free-solid-svg-icons'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
 
-import decodeToken from '../../decodeToken.js'
+import decodeToken from '../decodeToken'
 
 const RootRoute = () => {
 	const { pathname: pathName } = useLocation()

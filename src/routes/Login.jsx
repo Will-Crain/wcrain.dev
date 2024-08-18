@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react'
 import { Link, Navigate } from 'react-router-dom'
 
-import { LoginContext } from '../../App'
+import { LoginContext } from '../App'
 
 let Login = () => {
 	let [context, setContext] = useContext(LoginContext)

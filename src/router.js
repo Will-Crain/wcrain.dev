@@ -3,10 +3,11 @@ import Login from './routes/Login'
 import Register from './routes/Register'
 import Profile from './routes/Profile'
 import Home from './routes/Home'
+import Pair from './routes/Pair'
 
 import BillTracker from './routes/BillTracker'
 
-import { createBrowserRouter } from 'react-router-dom'
+import { createBrowserRouter, Link } from 'react-router-dom'
 
 const router = createBrowserRouter([
   {
@@ -29,12 +30,16 @@ const router = createBrowserRouter([
         path: '/home',
         element: <Home />
       },
+      {
+        path: '/pair/:app',
+        element: <Pair />
+      },
+      {
+        path: '/billTracker',
+        element: <BillTracker />,
+      }
     ]
   },
-  {
-    path: '/billTracker',
-    element: <BillTracker />,
-  }
 ])
 
 export default router

@@ -1,8 +1,8 @@
 import React, { useState, useContext } from 'react'
 import { Navigate } from 'react-router-dom'
 
-import decodeToken from '../../decodeToken.js'
-import { LoginContext } from '../../App'
+import decodeToken from '../decodeToken.js'
+import { LoginContext } from '../App'
 
 
 const Profile = () => {
