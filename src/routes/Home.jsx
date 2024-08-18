@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom'
 import decodeToken from '../decodeToken'
 
 const Home = () => {
-  let appToken = JSON.parse(window.localStorage.getItem('appToken'))
-  let [hasValidBillTrackerToken, decodedBillTrackerToken] = decodeToken(appToken.billTracker)
+  let appToken = (window.localStorage.getItem('appToken') && JSON.parse(window.localStorage.getItem('appToken'))) || {}
+  let [hasValidBillTrackerToken, decodedBillTrackerToken] = decodeToken(appToken?.billTracker) || [false, {}]
 
   return (
     <section className='flex h-screen flex-row items-end justify-left w-screen p-4 sm:items-start' id='content'>
