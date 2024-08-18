@@ -12,12 +12,13 @@ const BillTracker = () => {
   let [, appToken] = decodeToken(window.localStorage.appToken)
   let hasValidBillTrackerToken = appToken.hasOwnProperty('billTracker')
 
-  useEffect(() => {
+  let [billStats, setBillStats] = useState({ init: false, [userID]: [], [targetID]: [] })
+
+  let apiGet = () => {
     let fetchOptions = {
       method: 'get',
       headers: { 'Content-Type': 'application/json', 'userID': decodedLoginToken.id },
     }
-
     fetch(`http://localhost:3500/billTracker`, fetchOptions)
       .then((res) => {
         if (res.status === 201) return res.json()
@@ -30,12 +31,19 @@ const BillTracker = () => {
         if (typeof appToken == 'string') appToken = JSON.parse(appToken)
 
         appToken['billTracker'] = data.token
-
         window.localStorage.setItem('appToken', JSON.stringify(appToken))
+
+        if (billStats.init === false) setBillStats({ ...data.data, init: true, })
       })
       .catch((error) => {
         console.warn(error)
       })
+  }
+
+  // Check for valid billTracker
+  useEffect(() => {
+    if (billStats.init === true) return
+    apiGet()
   })
 
   return (
