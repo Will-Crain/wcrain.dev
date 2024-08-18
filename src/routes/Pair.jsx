@@ -26,8 +26,12 @@ const Pair = (props) => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(postData),
     }
+    let url = {
+      'dev': 'http://localhost:3500',
+      'production': 'https://monetary-tracker-server.onrender.com',
 
-    fetch(`http://localhost:3500/${app}/pair`, fetchOptions)
+    }
+    fetch(`${url[process.env.NODE_ENV]}/${app}/pair`, fetchOptions)
       .then((res) => {
         if (res.status === 201) return res.json()
         if (res.status !== 201) return false
@@ -68,7 +72,7 @@ const Pair = (props) => {
 
         </form>
       </div>
-      {linkStatus && <Navigate to={`/${app}`} />}
+      {linkStatus && <Navigate to={`/ ${app}`} />}
     </section>
   )
 }

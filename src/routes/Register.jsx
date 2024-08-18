@@ -34,8 +34,12 @@ let Register = () => {
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify(postData),
 		}
+		let url = {
+			'dev': 'http://localhost:3500',
+			'production': 'https://monetary-tracker-server.onrender.com',
 
-		fetch('http://localhost:3500/register', fetchOptions)
+		}
+		fetch(`${url[process.env.NODE_ENV]}/register`, fetchOptions)
 			.then((res) => {
 				if (res.status !== 201) return false
 				setRegistrationStatus(true)

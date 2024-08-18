@@ -22,7 +22,12 @@ const BillTracker = () => {
       method: 'get',
       headers: { 'Content-Type': 'application/json', 'userID': decodedLoginToken.id },
     }
-    fetch(`http://localhost:3500/billTracker`, fetchOptions)
+    let url = {
+      'dev': 'http://localhost:3500',
+      'production': 'https://monetary-tracker-server.onrender.com',
+
+    }
+    fetch(`${url[process.env.NODE_ENV]}/billTracker`, fetchOptions)
       .then((res) => {
         if (res.status === 201) return res.json()
         if (res.status !== 201) setRedirectStatus(true)
@@ -61,7 +66,12 @@ const BillTracker = () => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ userID: decodedLoginToken.id }) // TODO: Add location info
     }
-    fetch(`http://localhost:3500/billTracker`, fetchOptions)
+    let url = {
+      'dev': 'http://localhost:3500',
+      'production': 'https://monetary-tracker-server.onrender.com',
+
+    }
+    fetch(`${url[process.env.NODE_ENV]}/billTracker`, fetchOptions)
       .then((res) => {
         if (res.status === 201) return res.json()
         return {}
