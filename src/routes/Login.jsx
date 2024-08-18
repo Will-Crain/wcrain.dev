@@ -50,15 +50,15 @@ let Login = () => {
 	}
 
 	return (
-		<section className='flex h-screen flex-col items-center justify-center w-full px-4 sm:w-[40rem]' id='content'>
+		<section className='flex h-full flex-col items-center justify-center w-full px-0 sm:px-4 sm:w-[40rem]' id='content'>
 			<div className='w-full bg-white rounded-lg shadow-md dark:border dark:bg-gray-800 dark:border-gray-700'>
 				<h1 className='text-center m-4 text-xl font-bold text-black md:text-3xl dark:text-white'>
 					Sign in
 				</h1>
 				<form onSubmit={handleSubmit} className='w-full flex flex-col p-4 gap-4 items-center'>
-					<input name='email' value={formData.email} onChange={handleInputChange} placeholder='Email' type='email' className='w-96 text-base p-2 mx-2 bg-gray-50 border border-gray-100 text-black rounded-lg'></input>
-					<input name='password' value={formData.password} onChange={handleInputChange} placeholder='Password' type='password' className='w-96 text-base p-2 mx-2 bg-gray-50 border border-gray-100 text-black rounded-lg'></input>
-					<button type='submit' className='w-96 p-2 mx-2 rounded-lg text-black font-bold text-base bg-amber-500'>
+					<input name='email' value={formData.email} onChange={handleInputChange} placeholder='Email' type='email' className='w-full sm:w-96 text-base p-2 mx-2 bg-gray-50 border border-gray-100 text-black rounded-lg'></input>
+					<input name='password' value={formData.password} onChange={handleInputChange} placeholder='Password' type='password' className='w-full sm:w-96 text-base p-2 mx-2 bg-gray-50 border border-gray-100 text-black rounded-lg'></input>
+					<button type='submit' className='w-full sm:w-96 p-2 mx-2 rounded-lg text-black font-bold text-base bg-amber-500'>
 						Log In
 					</button>
 					<p className='text-sm font-light text-black dark:text-gray-400'>

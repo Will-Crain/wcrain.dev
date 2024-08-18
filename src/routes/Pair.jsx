@@ -60,9 +60,9 @@ const Pair = (props) => {
 
           <span className='p-1 w-full' />
 
-          <input name="targetID" value={formData.targetID} onChange={handleInputChange} placeholder='User ID' className='h-10 w-96 p-2 mx-2 bg-gray-50 border border-gray-100 text-black rounded-lg'></input>
+          <input name="targetID" value={formData.targetID} onChange={handleInputChange} placeholder='User ID' className='h-10 w-full sm:w-96 p-2 mx-2 bg-gray-50 border border-gray-100 text-black rounded-lg'></input>
 
-          <button type='submit' className='w-96 p-2 h-10 mx-2 rounded-lg text-black font-bold text-l bg-amber-500'>
+          <button type='submit' className='w-full sm:w-96 p-2 h-10 mx-2 rounded-lg text-black font-bold text-l bg-amber-500'>
             Link Accounts
           </button>
 
