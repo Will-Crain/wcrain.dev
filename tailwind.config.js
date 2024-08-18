@@ -8,6 +8,9 @@ module.exports = {
     extend: {
       colors: {
         primary: colors.zest,
+      },
+      boxShadow: {
+        'md': '0 0px 8px rgb(0 0 0 / 0.2)',
       }
     }
   },
