@@ -46,6 +46,11 @@ const BillTracker = () => {
     apiGet()
   })
 
+  // Poll data
+  useEffect(() => {
+    let timer = setInterval(apiGet, 2000)
+    return () => clearInterval(timer)
+  }, [])
   return (
     <>
       {redirectStatus && <Navigate to='/pair/billTracker' />}
