@@ -97,15 +97,20 @@ const BillTracker = () => {
     return `Case not covered`
   }
   let getTurnColor = () => {
-    if (!billStats[userID].paidFirst && !billStats[targetID].paidFirst) return `#000000`
+    try {
+      if (!billStats[userID].paidFirst && !billStats[targetID].paidFirst) return `#000000`
 
-    let firstPaid = billStats[userID].paidFirst ? billStats[userID] : billStats[targetID]
-    let secondPaid = billStats[userID].paidFirst ? billStats[targetID] : billStats[userID]
+      let firstPaid = billStats[userID].paidFirst ? billStats[userID] : billStats[targetID]
+      let secondPaid = billStats[userID].paidFirst ? billStats[targetID] : billStats[userID]
 
-    let diff = secondPaid.bills.length - firstPaid.bills.length
+      let diff = secondPaid.bills.length - firstPaid.bills.length
 
-    if (diff >= 0) return firstPaid.color
-    return secondPaid.color
+      if (diff >= 0) return firstPaid.color
+      return secondPaid.color
+    }
+    catch (e) {
+      return '#000000'
+    }
   }
   return (
     <>
