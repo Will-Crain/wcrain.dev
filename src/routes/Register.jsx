@@ -11,7 +11,7 @@ let Register = () => {
 		confirmation: '',
 		firstName: '',
 		lastName: '',
-		color: '#000000',
+		color: '#f59e0b',
 		code: '',
 	})
 	let [registrationStatus, setRegistrationStatus] = useState(false)
