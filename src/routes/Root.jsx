@@ -22,7 +22,7 @@ const RootRoute = () => {
 	return (
 		<>
 			<div id='pageContainer' className='grid grid-cols-1 sm:grid-rows-[4rem_auto] auto-rows-fr h-screen w-screen grid-rows-[auto_4rem]'>
-				<div id='header' className={`px-4 flex flex-row text-2xl justify-center items-center w-screen h-16 font-bold text-black shadow-md order-last sm:order-first`}>
+				<div id='header' className={`px-4 flex flex-row text-2xl justify-center items-center w-screen h-16 font-bold text-black bg-white shadow-md `}>
 					<Link to='/'>
 						<FontAwesomeIcon icon={faHouse} />
 					</Link>
@@ -31,7 +31,7 @@ const RootRoute = () => {
 						<FontAwesomeIcon icon={faUser} />
 					</Link>
 				</div>
-				<section id='body' className='px-4 flex flex-col justify-start items-center h-[calc(100vh-4rem)] w-screen'>
+				<section id='body' className='overflow-y-auto h-[calc(100vh-4rem)] flex flex-col items-center overflow-x-hidden w-screen order-first sm:order-last'>
 					<Outlet />
 				</section>
 			</div>

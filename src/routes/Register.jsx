@@ -65,7 +65,7 @@ let Register = () => {
 	}
 
 	return (
-		<section className='flex h-screen flex-col items-center justify-center w-full px-4 sm:w-[40rem]' id='register'>
+		<section className='flex h-fit flex-col items-center justify-center w-full p-2 sm:w-[40rem]' id='register'>
 			<div className='w-full bg-white rounded-lg shadow-md dark:border dark:bg-gray-800 dark:border-gray-700'>
 				<h1 className='text-center m-2 mb-0 text-xl font-bold text-black md:text-3xl dark:text-white'>
 					Create an account
@@ -76,7 +76,7 @@ let Register = () => {
 						<input name="lastName" value={formData.lastName} onChange={handleInputChange} placeholder='Last Name' className='w-1/2 p-2 mr-0 mx-2 h-10  bg-gray-50 border border-gray-100 text-black rounded-lg'></input>
 					</div>
 					<div className='flex flex-row w-full sm:w-96 justify-center items-center'>
-						<input type='color' name='color' value={formData.color} onChange={handleInputChange} className='h-8 w-8' />
+						<input type='color' name='color' value={formData.color} onChange={handleInputChange} className='h-8 w-8' style={{ boxShadow: `0 0 6px ${formData.color}` }} />
 						<p className='px-2 font-bold'>What's your favorite color?</p>
 					</div>
 
@@ -95,11 +95,11 @@ let Register = () => {
 
 					<span className='p-1 w-full' />
 
-					<button type='submit' className='w-full sm:w-96 p-2 h-10 mx-2 rounded-lg text-black font-bold text-l bg-amber-500'>
+					<button type='submit' className='w-full sm:w-96 p-2 h-10 mx-2 rounded-lg text-white font-bold text-l bg-black'>
 						Register
 					</button>
 					<p className='text-sm font-light text-black dark:text-gray-400'>
-						Already have an account? <Link to='/login' className='font-bold bg-amber-500 rounded-lg px-1 text-black'>Log in</Link>
+						Already have an account? <Link to='/login' className='font-bold bg-black rounded-lg px-1 text-white'>Log in</Link>
 					</p>
 				</form>
 			</div>
