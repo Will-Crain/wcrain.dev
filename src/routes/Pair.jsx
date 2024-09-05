@@ -72,7 +72,7 @@ const Pair = (props) => {
 
         </form>
       </div>
-      {linkStatus && <Navigate to={`/ ${app}`} />}
+      {linkStatus && <Navigate to={`/${app}`} />}
     </section>
   )
 }
