@@ -27,7 +27,7 @@ const Pair = (props) => {
       body: JSON.stringify(postData),
     }
     let url = {
-      'dev': 'http://localhost:3500',
+      'development': 'http://localhost:3500',
       'production': 'https://monetary-tracker-server.onrender.com',
 
     }
