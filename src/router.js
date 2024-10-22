@@ -6,6 +6,7 @@ import Home from './routes/Home'
 import Pair from './routes/Pair'
 
 import BillTracker from './routes/BillTracker'
+import Roullette from './routes/Roullette'
 
 import { createBrowserRouter, Link } from 'react-router-dom'
 
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
       }
     ]
   },
+  {
+    path: '/roullette',
+    element: <Roullette />
+  }
 ])
 
 export default router
